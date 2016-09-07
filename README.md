@@ -1,7 +1,4 @@
-# Magellan: Geospatial Analytics Using Spark
-
-[![Build Status](https://travis-ci.org/harsha2010/magellan.svg?branch=master)](https://travis-ci.org/harsha2010/magellan)
-[![codecov.io](http://codecov.io/github/harsha2010/magellan/coverage.svg?branch=master)](http://codecov.io/github/harsha2010/magellan?branch=maste)
+# Anaya: Geospatial Analytics Using Spark
 
 
 Geospatial data is pervasive, and spatial context is a very rich signal of user intent and relevance
@@ -16,20 +13,12 @@ To leverage spatial context in a predictive analytics application requires us to
 to parse these datasets at scale, join them with target datasets that contain point in space information,
 and answer geometrical queries efficiently.
 
-Magellan is an open source library Geospatial Analytics using Spark as the underlying engine.
+Anaya is an open source library Geospatial Analytics using Spark as the underlying engine.
 We leverage Catalyst’s pluggable optimizer to efficiently execute spatial joins, SparkSQL’s powerful operators to express geometric queries in a natural DSL, and Pyspark’s Python integration to provide Python bindings.
-
-# Linking
-
-You can link against this library using the following coordinates:
-
-	groupId: harsha2010
-	artifactId: magellan
-	version: 1.0.3-s_2.10
 
 # Requirements
 
-This library requires Spark 1.4+
+This library requires Spark 1.5+
 
 # Capabilities
 
@@ -55,7 +44,7 @@ You can read Shapefile formatted data as follows:
 
 
 	val df = sqlCtx.read.
-	  format("magellan").
+	  format("anaya").
 	  load(path)
 	  
 	df.show()
@@ -81,26 +70,16 @@ You can read Shapefile formatted data as follows:
 	+--------------------+
 	
 
-To read GeoJSON format pass in the type as geojson during load as follows:
-
-	val df = sqlCtx.read.
-	  format("magellan").
-	  option("type", "geojson").
-	  load(path)
-	  
-
 # Scala API
 
-Magellan is hosted on [Spark Packages](http://spark-packages.org/package/harsha2010/magellan)
+When launching the Spark Shell, Anaya can be included like any other spark package using the --packages option:
 
-When launching the Spark Shell, Magellan can be included like any other spark package using the --packages option:
+	> $SPARK_HOME/bin/spark-shell --jars anaya_2.10-1.0.0.jar
 
-	> $SPARK_HOME/bin/spark-shell --packages harsha2010:magellan:1.0.2-s_2.10
-
-A few common packages you might want to import within Magellan
+A few common packages you might want to import within Anaya
 	
-	import magellan.{Point, Polygon}
-	import org.apache.spark.sql.magellan.dsl.expressions._
+	import anaya.{Point, Polygon}
+	import org.apache.spark.sql.anaya.dsl.expressions._
 	import org.apache.spark.sql.types._
 
 ## Data Structures
